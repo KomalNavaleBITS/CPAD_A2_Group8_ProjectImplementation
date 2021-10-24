@@ -1,0 +1,102 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3>ASSIGNMENTS: </h3>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-6">
+            <label>User's List</label>
+    
+            <div *ngIf="userList">
+                <select class="form-control" [(ngModel)]="userModel" #y>
+                    <option *ngFor="let y of userList" [ngValue]="y" >{{y.name}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <label>Task's List</label>
+    
+            <div *ngIf="taskList">
+                <select class="form-control" [(ngModel)]="taskModel"  #x>
+                    <option *ngFor="let x of taskList" [ngValue]="x" >{{x.displayname}}</option>
+                </select>
+            </div>
+        </div>
+
+        
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary mt-4" *ngIf="!isEdit" (click)="createAssignment()">Create Assignment</button>
+            <!-- <button type="submit" class="btn btn-primary mt-4" *ngIf="isEdit" (click)="editUser()">Update Assignment</button> -->
+        </div>
+    </div>
+    <br><br>
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Selected Assignment Detail:</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <label>Assignment Number</label>
+                <div>
+                <input disabled type="text" name="idnum" [(ngModel)]="idDetailModel" type="text"  class="form-control">
+            </div>
+        </div>   
+        <div class="col-md-4">
+            <label>User Assigned</label>    
+            <div>
+                <input disabled type="text" name="username" [(ngModel)]="usernameDetailModel" type="text"  class="form-control">
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <label>Task Detail</label>
+            <div>
+                <input disabled type="text" name="taskname" [(ngModel)]="tasknameDetailModel" type="text"  class="form-control">
+            </div>
+        </div>
+      
+    </div>
+
+
+
+    <div class="row pt-5">
+        <div class="col-md-12">
+            <p>ASSIGNMENT LIST:</p>
+            <table class="table table-hover table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">S.No</th>
+                        <th scope="col">ASSIGNMENT ID</th>
+                        <th scope="col">VIEW DETAILS</th>
+                        <th scope="col">DELETE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of assignmentList; let i = index">
+                        <td>{{i+1}}</td> 
+                        <td>{{item._id ? item._id : 'N/A'}}</td>
+                        <td>
+                            <svg (click)="viewAssignmentDetails(item._id)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-view-stacked" viewBox="0 0 16 16">
+                                <path d="M3 0h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3zm0 8h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3z"/>
+                              </svg>
+                        </td>
+                        <td>
+                            <svg (click)="deleteAssignment(item._id)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                              <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                            </svg>
+                        </td>
+                    </tr>
+                 
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

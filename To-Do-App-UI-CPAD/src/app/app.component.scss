@@ -1,0 +1,27 @@
+ul{
+    list-style: none;
+}
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  .content {
+    min-height: 100%;
+  }
+  .content-inside {
+    padding-bottom: 50px;
+  }
+  .footer {
+    height: auto;
+    margin-top: -50px;
+    color: whitesmoke;
+    text-align: center;
+    background-color: black;
+  }
+
+  .navbar{
+      padding-top: 1.5rem !important;
+      padding-bottom: 1.5rem !important;
+  }

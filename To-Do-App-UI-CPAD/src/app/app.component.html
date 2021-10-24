@@ -1,0 +1,56 @@
+<body>
+  <div class="content">
+    <div class="content-inside">
+      <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+        
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto" style="padding-left: 8.5em;">
+            <li class="navbar-brand">          
+              MyLineUpApp   
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item active"  (click)="selectedTab = 'users'">
+              <a class="nav-link" href="#">USERS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" (click)="selectedTab = 'tasks'">TASKS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" style="padding-right: 12em;" (click)="selectedTab = 'assignments'">ASSIGNMENTS</a>
+            </li>            
+          </ul>         
+          
+        </div>
+      </nav>
+
+
+      
+      <div class="container" style="padding: 2rem;">
+        <div *ngIf="selectedTab == 'users'">
+          <app-users></app-users>
+        </div>
+        <div *ngIf="selectedTab == 'tasks'">
+          <app-tasks></app-tasks>
+        </div>
+        <div *ngIf="selectedTab == 'assignments'">
+          <app-assignments></app-assignments>
+        </div>
+     
+    </div>
+   
+  </div>
+  <footer class="footer">
+    <p>A2 - Cross Platform Application Development- Project Implementation</p>
+
+    <p>Prepared by Group 8:</p>
+    <ul>
+        <li>Gaurav Kumar Sinha - 2020MT93014</li>
+        <li>Jabez A - 2020MT93234</li>
+        <li>Komal Nitesh Navale - 2020MT93614</li>
+        <li>Pritha Chattopadhyay - 2020MT93533</li>
+    </ul>
+  </footer>
+
+</div>
+</body>
